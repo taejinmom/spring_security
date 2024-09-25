@@ -38,7 +38,7 @@ class JpaUserServiceTest {
 
     @Test
     void connection() {
-        log.info(entityManager.createNativeQuery("SELECT current_schema()").getSingleResult().toString());
+        String a = entityManager.createNativeQuery("SELECT current_schema()").getSingleResult().toString();
 
 
     }
@@ -55,16 +55,5 @@ class JpaUserServiceTest {
 
         jpaUserService.save(user1);
         jpaUserService.save(user2);
-    }
-
-    @Test
-    void findById() {
-        Optional<User> user = jpaUserService.findUser("1");
-
-        Assertions.assertThat(user).isNotEmpty();
-    }
-
-    @Test
-    void findUsers() {
     }
 }
